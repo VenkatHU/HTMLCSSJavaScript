@@ -1,0 +1,17 @@
+﻿@{
+    var currentUrl = Request.FilePath;
+}
+
+@if (Session["UserName"] == null)
+{
+     <ul>
+          <li>@Html.ActionLink("Register", "Create", "SampleLogin", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", new { returnUrl = currentUrl}, new {})</li>
+    </ul>
+}
+else
+{
+    <ul>
+        <li>@Html.ActionLink("LogOff", "LogOffUser", "SampleLogin", routeValues: null, htmlAttributes: new { id = "logoff" })</li>
+    </ul>
+}

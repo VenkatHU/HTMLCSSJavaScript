@@ -1,0 +1,39 @@
+﻿@*@model HTML_CSS_Sample.Models.LoginModel*@
+@model HTML_CSS_Sample.Models.LogIn
+
+@{
+       ViewBag.url = "";
+}
+
+<section id="loginForm">
+<h2>Use a local account to log in.</h2>
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <h2>Log in Form</h2><br />
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)<br />
+                @Html.TextBoxFor(m => m.UserName)<br />
+                @Html.ValidationMessageFor(m => m.UserName)<br />
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)<br />
+                @Html.PasswordFor(m => m.Password)<br />
+                @Html.ValidationMessageFor(m => m.Password)<br />
+            </li>
+        </ol>
+        <input type="submit" value="Log in" />
+    </fieldset>
+    
+    <br />
+    
+    <span class="registerText">   @Html.ActionLink("Register", "Create","SampleLogin") if you don't have an account.</span>
+}
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

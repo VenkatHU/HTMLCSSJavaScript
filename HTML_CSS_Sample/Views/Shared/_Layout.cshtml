@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+   @* @Scripts.Render("~/bundles/jquery")*@
+    @RenderSection("scripts", required: false)
+
+     <script src="~/Content/themes/base/Script.js"></script>
+     <link href="~/Content/Styles.css" rel="stylesheet" />
+    
+</head>
+    @{
+        var UserCheck = "Register/Login";
+        if (Session["UserName"] != null)
+        {
+            UserCheck = "Welcome " + (Session["UserName"].ToString());
+        }
+    }
+
+<body>
+    <header>
+        <div class="content-wrapper">
+               <div id="menu">
+                <ul>
+                    <li><span>
+                        <image class="LogoImage" src="../Images/Logo.png"></image>
+                    </span></li>
+                    <li><a href="@Url.Content("~/Home/About")">Home</a></li>
+
+                    <li><a href="#">Database <span>
+                        <img class="MenuImage" src="../Images/DownArrow1.png" />
+                    </span></a>
+                        <ul>
+                            <li><a href="@Url.Content("~/Home/Oracle")">Oracle <span>
+                                <img class="MenuImage" src="../Images/RightArrow.png" /></a>
+                                <ul>
+                                    <li><a href="@Url.Content("~/Home/Oracle")">PL/SQL</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="@Url.Content("~/Home/SQLServer")">SQL Server <span>
+                                <img class="MenuImage" src="../Images/RightArrow.png" /></a>
+                                <ul>
+                                    <li><a href="@Url.Content("~/Home/SQL")">T-SQL</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">MS Office <span>
+                        <img class="MenuImage" src="../Images/DownArrow1.png" />
+                    </span></a>
+                        <ul>
+                            <li><a href="@Url.Content("~/Home/Excel")">Excel</a></li>
+                            <li><a href="@Url.Content("~/Home/Access")">Access</a></li>
+                            <li><a href="@Url.Content("~/Home/Word")">Word</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Web Development <span>
+                        <img class="MenuImage" src="../Images/DownArrow1.png" />
+                    </span></a>
+                        <ul>
+                            <li><a href="@Url.Content("~/Home/HTML")">HTML</a></li>
+                            <li><a href="@Url.Content("~/Home/css")">CSS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Languages <span>
+                        <img class="MenuImage" src="../Images/DownArrow1.png" />
+                    </span></a>
+                        <ul>
+                            <li><a href="@Url.Content("~/Home/Clanguage")">C Language</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">@UserCheck</a>@Html.Partial("_LoginPartial")</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+
+    <div class="footer">
+        <p><a href="#">Home</a><span> | </span><a href="#">About Us</a><span> | </span><a href="#">Contact Us</a><span> | </span><a href="#">Testimonials</a><span> | </span><a href="@Url.Content("~/Home/SiteMap")">Sitemap</a></p>
+        <p>While using this site, you agree to have read and accepted our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+        <p id="adhint">
+            We use advertisements to support this website and fund the development of new content.<br>
+            By continuing to use this website, you agree to view these advertisements and not prevent their display.
+        </p>
+        <p><a href="#">Copyright</a> &copy; 2003-2016. All rights reserved.</p>
+    </div>
+</body>
+
+</html>

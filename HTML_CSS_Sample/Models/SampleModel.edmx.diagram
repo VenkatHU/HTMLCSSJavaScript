@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c2cba8e02da1438eb9667caae30d2a10" Name="Diagram1">
+        <EntityTypeShape EntityType="SampleModel.Cours" Width="1.5" PointX="7.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.LogIn" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.Staff" Width="1.5" PointX="7.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.Student" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.StudentTransaction" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.sysdiagram" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.TblCourse_Faculty" Width="1.5" PointX="10" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.TblCustomer" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.TblCustomerOrder" Width="1.5" PointX="12" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.TblProduct" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.TblProductCategory" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.TblProductOrder" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.TblProductSubcategory" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="SampleModel.FK_TblCourse_Faculty_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK_TblCourse_Faculty_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK_StudentTransactions_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK_TblCustomerOrders_TblCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK_TblProduct_TblProductSubcategory" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK_TblProductOrders_TblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK_TblProductOrders_TblProduct1" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK_TblProductSubcategory_TblProductCategory" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

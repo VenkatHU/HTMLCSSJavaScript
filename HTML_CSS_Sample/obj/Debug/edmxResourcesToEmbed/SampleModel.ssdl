@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SampleModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SampleModelStoreContainer">
+    <EntitySet Name="Courses" EntityType="SampleModel.Store.Courses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LogIn" EntityType="SampleModel.Store.LogIn" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Staff" EntityType="SampleModel.Store.Staff" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Students" EntityType="SampleModel.Store.Students" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StudentTransactions" EntityType="SampleModel.Store.StudentTransactions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="SampleModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCourse_Faculty" EntityType="SampleModel.Store.TblCourse_Faculty" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCustomer" EntityType="SampleModel.Store.TblCustomer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblCustomerOrders" EntityType="SampleModel.Store.TblCustomerOrders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblProduct" EntityType="SampleModel.Store.TblProduct" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblProductCategory" EntityType="SampleModel.Store.TblProductCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblProductOrders" EntityType="SampleModel.Store.TblProductOrders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TblProductSubcategory" EntityType="SampleModel.Store.TblProductSubcategory" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_StudentTransactions_Students" Association="SampleModel.Store.FK_StudentTransactions_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentTransactions" EntitySet="StudentTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCourse_Faculty_Courses" Association="SampleModel.Store.FK_TblCourse_Faculty_Courses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="TblCourse_Faculty" EntitySet="TblCourse_Faculty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCourse_Faculty_Staff" Association="SampleModel.Store.FK_TblCourse_Faculty_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="TblCourse_Faculty" EntitySet="TblCourse_Faculty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCustomerOrders_TblCustomer" Association="SampleModel.Store.FK_TblCustomerOrders_TblCustomer">
+      <End Role="TblCustomer" EntitySet="TblCustomer" />
+      <End Role="TblCustomerOrders" EntitySet="TblCustomerOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProduct_TblProductSubcategory" Association="SampleModel.Store.FK_TblProduct_TblProductSubcategory">
+      <End Role="TblProductSubcategory" EntitySet="TblProductSubcategory" />
+      <End Role="TblProduct" EntitySet="TblProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProductOrders_TblProduct" Association="SampleModel.Store.FK_TblProductOrders_TblProduct">
+      <End Role="TblProduct" EntitySet="TblProduct" />
+      <End Role="TblProductOrders" EntitySet="TblProductOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProductOrders_TblProduct1" Association="SampleModel.Store.FK_TblProductOrders_TblProduct1">
+      <End Role="TblProduct" EntitySet="TblProduct" />
+      <End Role="TblProductOrders" EntitySet="TblProductOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProductSubcategory_TblProductCategory" Association="SampleModel.Store.FK_TblProductSubcategory_TblProductCategory">
+      <End Role="TblProductCategory" EntitySet="TblProductCategory" />
+      <End Role="TblProductSubcategory" EntitySet="TblProductSubcategory" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CourseName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LogIn">
+    <Key>
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UserType" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserType" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Street1" Type="varchar" MaxLength="100" />
+    <Property Name="Street2" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="100" />
+    <Property Name="State" Type="varchar" MaxLength="100" />
+    <Property Name="ZipCode" Type="varchar" MaxLength="10" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudnetID" />
+    </Key>
+    <Property Name="StudnetID" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Street1" Type="varchar" MaxLength="100" />
+    <Property Name="Street2" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="100" />
+    <Property Name="State" Type="varchar" MaxLength="100" />
+    <Property Name="ZipCode" Type="varchar" MaxLength="10" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="EnrolleDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="StudentTransactions">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="int" Nullable="false" />
+    <Property Name="StudntId" Type="int" />
+    <Property Name="CourseFacultyId" Type="int" />
+    <Property Name="AmountPaid" Type="money" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TblCourse_Faculty">
+    <Key>
+      <PropertyRef Name="CourseFaultyID" />
+    </Key>
+    <Property Name="CourseFaultyID" Type="int" Nullable="false" />
+    <Property Name="CourseId" Type="int" />
+    <Property Name="StaffID" Type="int" />
+  </EntityType>
+  <EntityType Name="TblCustomer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" MaxLength="8" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="NameStyle" Type="bit" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="MaritalStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="1" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="120" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="120" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="DateFirstPurchase" Type="date" />
+    <Property Name="CustomerType" Type="nvarchar" MaxLength="15" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TblCustomerOrders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+    <Property Name="OrderStatus" Type="varchar" MaxLength="50" />
+    <Property Name="DateOrderPlaced" Type="date" />
+    <Property Name="DateOrderPaid" Type="date" />
+    <Property Name="TotalOrderPrice" Type="money" />
+    <Property Name="OrderDescription" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="TblProduct">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ProductDescription" Type="nvarchar" MaxLength="400" />
+    <Property Name="ProductSubcategoryKey" Type="int" />
+    <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" />
+    <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClassID" Type="nvarchar" MaxLength="10" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="20" />
+    <Property Name="StyleID" Type="nvarchar" MaxLength="10" />
+    <Property Name="StyleName" Type="nvarchar" MaxLength="20" />
+    <Property Name="ColorID" Type="nvarchar" MaxLength="10" />
+    <Property Name="ColorName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Size" Type="nvarchar" MaxLength="50" />
+    <Property Name="SizeRange" Type="nvarchar" MaxLength="50" />
+    <Property Name="SizeUnitMeasureID" Type="nvarchar" MaxLength="20" />
+    <Property Name="Weight" Type="float" />
+    <Property Name="WeightUnitMeasureID" Type="nvarchar" MaxLength="20" />
+    <Property Name="UnitOfMeasureID" Type="nvarchar" MaxLength="10" />
+    <Property Name="UnitOfMeasureName" Type="nvarchar" MaxLength="40" />
+    <Property Name="StockTypeID" Type="nvarchar" MaxLength="10" />
+    <Property Name="StockTypeName" Type="nvarchar" MaxLength="40" />
+    <Property Name="UnitCost" Type="money" />
+    <Property Name="UnitPrice" Type="money" />
+    <Property Name="AvailableForSaleDate" Type="datetime" />
+    <Property Name="StopSaleDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="7" />
+    <Property Name="ImageURL" Type="nvarchar" MaxLength="512" />
+    <Property Name="ProductURL" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TblProductCategory">
+    <Key>
+      <PropertyRef Name="ProductCategoryID" />
+    </Key>
+    <Property Name="ProductCategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductCategoryLabel" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProductCategoryName" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="ProductCategoryDescription" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ImageURL" Type="nvarchar" MaxLength="512" />
+  </EntityType>
+  <EntityType Name="TblProductOrders">
+    <Key>
+      <PropertyRef Name="TransactionKey" />
+    </Key>
+    <Property Name="TransactionKey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="OrderDateKey" Type="datetime" />
+    <Property Name="CustomerKey" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="money" />
+    <Property Name="DateTimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TblProductSubcategory">
+    <Key>
+      <PropertyRef Name="ProductSubcategoryID" />
+    </Key>
+    <Property Name="ProductSubcategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductSubcategoryLabel" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProductSubcategoryName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ProductSubcategoryDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProductCategoryID" Type="int" />
+    <Property Name="ImageURL" Type="nvarchar" MaxLength="512" />
+  </EntityType>
+  <Association Name="FK_StudentTransactions_Students">
+    <End Role="Students" Type="SampleModel.Store.Students" Multiplicity="0..1" />
+    <End Role="StudentTransactions" Type="SampleModel.Store.StudentTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudnetID" />
+      </Principal>
+      <Dependent Role="StudentTransactions">
+        <PropertyRef Name="StudntId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCourse_Faculty_Courses">
+    <End Role="Courses" Type="SampleModel.Store.Courses" Multiplicity="0..1" />
+    <End Role="TblCourse_Faculty" Type="SampleModel.Store.TblCourse_Faculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="TblCourse_Faculty">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCourse_Faculty_Staff">
+    <End Role="Staff" Type="SampleModel.Store.Staff" Multiplicity="0..1" />
+    <End Role="TblCourse_Faculty" Type="SampleModel.Store.TblCourse_Faculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffId" />
+      </Principal>
+      <Dependent Role="TblCourse_Faculty">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCustomerOrders_TblCustomer">
+    <End Role="TblCustomer" Type="SampleModel.Store.TblCustomer" Multiplicity="0..1" />
+    <End Role="TblCustomerOrders" Type="SampleModel.Store.TblCustomerOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCustomer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="TblCustomerOrders">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProduct_TblProductSubcategory">
+    <End Role="TblProductSubcategory" Type="SampleModel.Store.TblProductSubcategory" Multiplicity="0..1" />
+    <End Role="TblProduct" Type="SampleModel.Store.TblProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblProductSubcategory">
+        <PropertyRef Name="ProductSubcategoryID" />
+      </Principal>
+      <Dependent Role="TblProduct">
+        <PropertyRef Name="ProductSubcategoryKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProductOrders_TblProduct">
+    <End Role="TblProduct" Type="SampleModel.Store.TblProduct" Multiplicity="0..1" />
+    <End Role="TblProductOrders" Type="SampleModel.Store.TblProductOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="TblProductOrders">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProductOrders_TblProduct1">
+    <End Role="TblProduct" Type="SampleModel.Store.TblProduct" Multiplicity="0..1" />
+    <End Role="TblProductOrders" Type="SampleModel.Store.TblProductOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="TblProductOrders">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProductSubcategory_TblProductCategory">
+    <End Role="TblProductCategory" Type="SampleModel.Store.TblProductCategory" Multiplicity="0..1" />
+    <End Role="TblProductSubcategory" Type="SampleModel.Store.TblProductSubcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblProductCategory">
+        <PropertyRef Name="ProductCategoryID" />
+      </Principal>
+      <Dependent Role="TblProductSubcategory">
+        <PropertyRef Name="ProductCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+      warning 6013: The table/view 'Sample.dbo.TblCustomerOrdersProducts' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="TblCustomerOrdersProducts">
+        <Property Name="OrderID" Type="int" />
+        <Property Name="ProductID" Type="int" />
+        <Property Name="Quantity" Type="smallint" />
+        <Property Name="Comments" Type="varchar" MaxLength="500" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'Sample.dbo.TblStudent_Courses' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="TblStudent_Courses">
+        <Property Name="CourseFaultyID" Type="int" />
+        <Property Name="StudentID" Type="int" />
+      </EntityType>-->
+</Schema>

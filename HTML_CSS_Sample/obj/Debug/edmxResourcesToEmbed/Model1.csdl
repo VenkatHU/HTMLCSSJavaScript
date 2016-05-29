@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SampleModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SampleEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Courses" EntityType="SampleModel.Cours" />
+    <EntitySet Name="LogIns" EntityType="SampleModel.LogIn" />
+    <EntitySet Name="Staffs" EntityType="SampleModel.Staff" />
+    <EntitySet Name="Students" EntityType="SampleModel.Student" />
+    <EntitySet Name="StudentTransactions" EntityType="SampleModel.StudentTransaction" />
+    <EntitySet Name="sysdiagrams" EntityType="SampleModel.sysdiagram" />
+    <EntitySet Name="TblCourse_Faculty" EntityType="SampleModel.TblCourse_Faculty" />
+    <EntitySet Name="TblCustomers" EntityType="SampleModel.TblCustomer" />
+    <EntitySet Name="TblCustomerOrders" EntityType="SampleModel.TblCustomerOrder" />
+    <EntitySet Name="TblProducts" EntityType="SampleModel.TblProduct" />
+    <EntitySet Name="TblProductCategories" EntityType="SampleModel.TblProductCategory" />
+    <EntitySet Name="TblProductOrders" EntityType="SampleModel.TblProductOrder" />
+    <EntitySet Name="TblProductSubcategories" EntityType="SampleModel.TblProductSubcategory" />
+    <AssociationSet Name="FK_TblCourse_Faculty_Courses" Association="SampleModel.FK_TblCourse_Faculty_Courses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="TblCourse_Faculty" EntitySet="TblCourse_Faculty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCourse_Faculty_Staff" Association="SampleModel.FK_TblCourse_Faculty_Staff">
+      <End Role="Staff" EntitySet="Staffs" />
+      <End Role="TblCourse_Faculty" EntitySet="TblCourse_Faculty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentTransactions_Students" Association="SampleModel.FK_StudentTransactions_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentTransactions" EntitySet="StudentTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCustomerOrders_TblCustomer" Association="SampleModel.FK_TblCustomerOrders_TblCustomer">
+      <End Role="TblCustomer" EntitySet="TblCustomers" />
+      <End Role="TblCustomerOrders" EntitySet="TblCustomerOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProduct_TblProductSubcategory" Association="SampleModel.FK_TblProduct_TblProductSubcategory">
+      <End Role="TblProductSubcategory" EntitySet="TblProductSubcategories" />
+      <End Role="TblProduct" EntitySet="TblProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProductOrders_TblProduct" Association="SampleModel.FK_TblProductOrders_TblProduct">
+      <End Role="TblProduct" EntitySet="TblProducts" />
+      <End Role="TblProductOrders" EntitySet="TblProductOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProductOrders_TblProduct1" Association="SampleModel.FK_TblProductOrders_TblProduct1">
+      <End Role="TblProduct" EntitySet="TblProducts" />
+      <End Role="TblProductOrders" EntitySet="TblProductOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProductSubcategory_TblProductCategory" Association="SampleModel.FK_TblProductSubcategory_TblProductCategory">
+      <End Role="TblProductCategory" EntitySet="TblProductCategories" />
+      <End Role="TblProductSubcategory" EntitySet="TblProductSubcategories" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="TblCourse_Faculty" Relationship="SampleModel.FK_TblCourse_Faculty_Courses" FromRole="Courses" ToRole="TblCourse_Faculty" />
+  </EntityType>
+  <EntityType Name="LogIn">
+    <Key>
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UserType" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UserType" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Street1" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Street2" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TblCourse_Faculty" Relationship="SampleModel.FK_TblCourse_Faculty_Staff" FromRole="Staff" ToRole="TblCourse_Faculty" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudnetID" />
+    </Key>
+    <Property Name="StudnetID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Street1" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Street2" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="EnrolleDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="StudentTransactions" Relationship="SampleModel.FK_StudentTransactions_Students" FromRole="Students" ToRole="StudentTransactions" />
+  </EntityType>
+  <EntityType Name="StudentTransaction">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="Int32" Nullable="false" />
+    <Property Name="StudntId" Type="Int32" />
+    <Property Name="CourseFacultyId" Type="Int32" />
+    <Property Name="AmountPaid" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Student" Relationship="SampleModel.FK_StudentTransactions_Students" FromRole="StudentTransactions" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TblCourse_Faculty">
+    <Key>
+      <PropertyRef Name="CourseFaultyID" />
+    </Key>
+    <Property Name="CourseFaultyID" Type="Int32" Nullable="false" />
+    <Property Name="CourseId" Type="Int32" />
+    <Property Name="StaffID" Type="Int32" />
+    <NavigationProperty Name="Cours" Relationship="SampleModel.FK_TblCourse_Faculty_Courses" FromRole="TblCourse_Faculty" ToRole="Courses" />
+    <NavigationProperty Name="Staff" Relationship="SampleModel.FK_TblCourse_Faculty_Staff" FromRole="TblCourse_Faculty" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="TblCustomer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NameStyle" Type="Boolean" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Suffix" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="DateFirstPurchase" Type="DateTime" Precision="0" />
+    <Property Name="CustomerType" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TblCustomerOrders" Relationship="SampleModel.FK_TblCustomerOrders_TblCustomer" FromRole="TblCustomer" ToRole="TblCustomerOrders" />
+  </EntityType>
+  <EntityType Name="TblCustomerOrder">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="PaymentMethod" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="OrderStatus" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DateOrderPlaced" Type="DateTime" Precision="0" />
+    <Property Name="DateOrderPaid" Type="DateTime" Precision="0" />
+    <Property Name="TotalOrderPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="OrderDescription" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="TblCustomer" Relationship="SampleModel.FK_TblCustomerOrders_TblCustomer" FromRole="TblCustomerOrders" ToRole="TblCustomer" />
+  </EntityType>
+  <EntityType Name="TblProduct">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="ProductDescription" Type="String" MaxLength="400" Unicode="true" FixedLength="false" />
+    <Property Name="ProductSubcategoryKey" Type="Int32" />
+    <Property Name="Manufacturer" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BrandName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClassID" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="ClassName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="StyleID" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="StyleName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="ColorID" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="ColorName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Size" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SizeRange" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SizeUnitMeasureID" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Weight" Type="Double" />
+    <Property Name="WeightUnitMeasureID" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="UnitOfMeasureID" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="UnitOfMeasureName" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="StockTypeID" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="StockTypeName" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="UnitCost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AvailableForSaleDate" Type="DateTime" Precision="3" />
+    <Property Name="StopSaleDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="7" Unicode="true" FixedLength="false" />
+    <Property Name="ImageURL" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+    <Property Name="ProductURL" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="TblProductSubcategory" Relationship="SampleModel.FK_TblProduct_TblProductSubcategory" FromRole="TblProduct" ToRole="TblProductSubcategory" />
+    <NavigationProperty Name="TblProductOrders" Relationship="SampleModel.FK_TblProductOrders_TblProduct" FromRole="TblProduct" ToRole="TblProductOrders" />
+    <NavigationProperty Name="TblProductOrders1" Relationship="SampleModel.FK_TblProductOrders_TblProduct1" FromRole="TblProduct" ToRole="TblProductOrders" />
+  </EntityType>
+  <EntityType Name="TblProductCategory">
+    <Key>
+      <PropertyRef Name="ProductCategoryID" />
+    </Key>
+    <Property Name="ProductCategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductCategoryLabel" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ProductCategoryName" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="ProductCategoryDescription" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ImageURL" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="TblProductSubcategories" Relationship="SampleModel.FK_TblProductSubcategory_TblProductCategory" FromRole="TblProductCategory" ToRole="TblProductSubcategory" />
+  </EntityType>
+  <EntityType Name="TblProductOrder">
+    <Key>
+      <PropertyRef Name="TransactionKey" />
+    </Key>
+    <Property Name="TransactionKey" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="OrderDateKey" Type="DateTime" Precision="3" />
+    <Property Name="CustomerKey" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TblProduct" Relationship="SampleModel.FK_TblProductOrders_TblProduct" FromRole="TblProductOrders" ToRole="TblProduct" />
+    <NavigationProperty Name="TblProduct1" Relationship="SampleModel.FK_TblProductOrders_TblProduct1" FromRole="TblProductOrders" ToRole="TblProduct" />
+  </EntityType>
+  <EntityType Name="TblProductSubcategory">
+    <Key>
+      <PropertyRef Name="ProductSubcategoryID" />
+    </Key>
+    <Property Name="ProductSubcategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductSubcategoryLabel" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ProductSubcategoryName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProductSubcategoryDescription" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ProductCategoryID" Type="Int32" />
+    <Property Name="ImageURL" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="TblProducts" Relationship="SampleModel.FK_TblProduct_TblProductSubcategory" FromRole="TblProductSubcategory" ToRole="TblProduct" />
+    <NavigationProperty Name="TblProductCategory" Relationship="SampleModel.FK_TblProductSubcategory_TblProductCategory" FromRole="TblProductSubcategory" ToRole="TblProductCategory" />
+  </EntityType>
+  <Association Name="FK_TblCourse_Faculty_Courses">
+    <End Role="Courses" Type="SampleModel.Cours" Multiplicity="0..1" />
+    <End Role="TblCourse_Faculty" Type="SampleModel.TblCourse_Faculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="TblCourse_Faculty">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCourse_Faculty_Staff">
+    <End Role="Staff" Type="SampleModel.Staff" Multiplicity="0..1" />
+    <End Role="TblCourse_Faculty" Type="SampleModel.TblCourse_Faculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffId" />
+      </Principal>
+      <Dependent Role="TblCourse_Faculty">
+        <PropertyRef Name="StaffID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentTransactions_Students">
+    <End Role="Students" Type="SampleModel.Student" Multiplicity="0..1" />
+    <End Role="StudentTransactions" Type="SampleModel.StudentTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudnetID" />
+      </Principal>
+      <Dependent Role="StudentTransactions">
+        <PropertyRef Name="StudntId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCustomerOrders_TblCustomer">
+    <End Role="TblCustomer" Type="SampleModel.TblCustomer" Multiplicity="0..1" />
+    <End Role="TblCustomerOrders" Type="SampleModel.TblCustomerOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCustomer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="TblCustomerOrders">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProduct_TblProductSubcategory">
+    <End Role="TblProductSubcategory" Type="SampleModel.TblProductSubcategory" Multiplicity="0..1" />
+    <End Role="TblProduct" Type="SampleModel.TblProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblProductSubcategory">
+        <PropertyRef Name="ProductSubcategoryID" />
+      </Principal>
+      <Dependent Role="TblProduct">
+        <PropertyRef Name="ProductSubcategoryKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProductOrders_TblProduct">
+    <End Role="TblProduct" Type="SampleModel.TblProduct" Multiplicity="0..1" />
+    <End Role="TblProductOrders" Type="SampleModel.TblProductOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="TblProductOrders">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProductOrders_TblProduct1">
+    <End Role="TblProduct" Type="SampleModel.TblProduct" Multiplicity="0..1" />
+    <End Role="TblProductOrders" Type="SampleModel.TblProductOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="TblProductOrders">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProductSubcategory_TblProductCategory">
+    <End Role="TblProductCategory" Type="SampleModel.TblProductCategory" Multiplicity="0..1" />
+    <End Role="TblProductSubcategory" Type="SampleModel.TblProductSubcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblProductCategory">
+        <PropertyRef Name="ProductCategoryID" />
+      </Principal>
+      <Dependent Role="TblProductSubcategory">
+        <PropertyRef Name="ProductCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

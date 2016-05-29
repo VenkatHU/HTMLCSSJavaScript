@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Oracle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var userName = string.Empty;
+    if (Session["UserName"] != null)
+    {
+        userName = Session["UserName"].ToString();
+    }
+}
+@*<video id="v">
+                    <source id='mp4'
+                    src="http://media.w3.org/2010/05/sintel/trailer.mp4"
+                    type='video/mp4'>
+                   @* <source id='webm'
+                    src="http://media.w3.org/2010/05/sintel/trailer.webm"
+                    type='video/webm'>
+                    <source id='ogv'
+                    src="http://media.w3.org/2010/05/sintel/trailer.ogv"
+                    type='video/ogg'>
+                </video>*@
+
+<table width="100%">
+    <col width="12%">
+    <col width="80%">
+    <col width="10%">
+    <tr>
+        <td></td>
+        <td>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <br>
+                        <h3>Oracle/PLSQL</h4>
+                            <br>
+                        <p><strong>Oracle</strong> is a relational database technology developed by Oracle.</p>
+                        <p><strong>PLSQL</strong> stands for &quot;<em>Procedural Language extensions to SQL&quot;</em>, and is an extension of SQL that is used in Oracle. PLSQL is closely integrated into the SQL language, yet it adds programming constructs that are not native to SQL.</p>
+                        <p>Our tutorial will start with the basics of Oracle such as how to retrieve and manipulate data. Then we will move to the more advanced topics such as how to create tables, functions, procedures, triggers, tablespaces, and schemas. We will conclude with a review of the functions that are proprietary to Oracle.</p>
+                        <p>With this tutorial, you should be on your way to becoming proficient in Oracle and PLSQL.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <br>
+                        <img src="../Images/Horizontal_Line.jpeg">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+
+                        <table>
+                            <tr>
+                                <td><a class="userBase" href="#" data-value='@userName'>Functions - Alphabetical</a></td>
+                                <td>Oracle/PLSQL Functions listed alphabetically</td>
+                            </tr>
+                            <tr>
+                                <td><a class="userBase" href="#" data-value='@userName'>Functions - Category</a></td>
+                                <td>Oracle/PLSQL Functions listed by category</td>
+                            </tr>
+                        </table>
+                        <h4>Oracle Keys, Constraints and Indexes</h4>
+                        <table>
+                            <tr>
+                                <td><a class="userBase" href="#" data-value='@userName'>Primary Keys</a></td>
+                                <td>Create, alter, drop, enable and disable primary keys</td>
+                            </tr>
+                            <tr>
+                                <td><a class="userBase" href="#" data-value='@userName'>Foreign Keys</a></td>
+                                <td>Create, drop, enable and disable foreign keys</td>
+                            </tr>
+                            <tr>
+                                <td><a class="userBase" href="#" data-value='@userName'>Unique Constraints</a></td>
+                                <td>Create, alter, drop, enable and disable unique constraints</td>
+                            </tr>
+                            <tr>
+                                <td><a class="userBase" href="#" data-value='@userName'>Check Constraints</a></td>
+                                <td>Create, alter, drop, enable and disable check constraints</td>
+                            </tr>
+                            <tr>
+                                <td><a class="userBase" href="#" data-value='@userName'>Indexes</a></td>
+                                <td>Create, rename and drop indexes (performance tuning)</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table><br /><br />
+
+
+            <div class="videoText" id="page">
+                <h1><a href="#video" data-media="//www.youtube.com/embed/NgLbcbK5824">Welcome '@Session["UserName"]', Click here to see the Video</a></h1>
+
+                <div class="placeholder" id="video">
+                    <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            

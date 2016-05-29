@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "HTML";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var currentUrl = Request.Url.ToString();
+}
+
+<table width="100%">
+    <col width="12%">
+    <col width="80%">
+    <col width="10%">
+    <tr>
+        <td></td>
+        <td>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <br>
+                        <h3>HTML Tutorial</h3>
+                        <p><strong>HTML</strong> stands for <em>HyperText Markup Language</em>. It is the technology used to create web pages that are displayed on web browsers. All web developers should know how to write, structure, and troubleshoot HTML.</p>
+                        <p>Our tutorial covers HTML elements within the declaration, head, and body sections of the HTML document. With this tutorial, you should be on your way to understanding and writing your own HTML.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+
+            <br />
+            @* ********************* To Check the Valid User ********************* *@
+
+            @if( Session["UserName"] != null )
+            {
+            <div class="htmlQuiz">
+                <h2>Hello '@Session["UserName"]', Welcome to the HTML Quiz</h2>
+                <br /><br />
+                <div id="quizstatus"></div>
+                <div id="htmlQuestions"></div>
+                <button id="nextQuest" onclick='verifyAns()'> Next Question </button>
+                <br>
+            </div>
+            }
+            else
+            {
+                <h3>Welcome User, you need to Login/Register to access HTML Quiz</h3>
+                <button onclick='LoginMe()'>Login</button>
+            }
+            

@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SampleModelStoreContainer" CdmEntityContainer="SampleEntities1">
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="SampleModel.Cours">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogIns">
+      <EntityTypeMapping TypeName="SampleModel.LogIn">
+        <MappingFragment StoreEntitySet="LogIn">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="SampleModel.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Street1" ColumnName="Street1" />
+          <ScalarProperty Name="Street2" ColumnName="Street2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="SampleModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudnetID" ColumnName="StudnetID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Street1" ColumnName="Street1" />
+          <ScalarProperty Name="Street2" ColumnName="Street2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EnrolleDate" ColumnName="EnrolleDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentTransactions">
+      <EntityTypeMapping TypeName="SampleModel.StudentTransaction">
+        <MappingFragment StoreEntitySet="StudentTransactions">
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="StudntId" ColumnName="StudntId" />
+          <ScalarProperty Name="CourseFacultyId" ColumnName="CourseFacultyId" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SampleModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCourse_Faculty">
+      <EntityTypeMapping TypeName="SampleModel.TblCourse_Faculty">
+        <MappingFragment StoreEntitySet="TblCourse_Faculty">
+          <ScalarProperty Name="CourseFaultyID" ColumnName="CourseFaultyID" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCustomers">
+      <EntityTypeMapping TypeName="SampleModel.TblCustomer">
+        <MappingFragment StoreEntitySet="TblCustomer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="NameStyle" ColumnName="NameStyle" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DateFirstPurchase" ColumnName="DateFirstPurchase" />
+          <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCustomerOrders">
+      <EntityTypeMapping TypeName="SampleModel.TblCustomerOrder">
+        <MappingFragment StoreEntitySet="TblCustomerOrders">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="DateOrderPlaced" ColumnName="DateOrderPlaced" />
+          <ScalarProperty Name="DateOrderPaid" ColumnName="DateOrderPaid" />
+          <ScalarProperty Name="TotalOrderPrice" ColumnName="TotalOrderPrice" />
+          <ScalarProperty Name="OrderDescription" ColumnName="OrderDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblProducts">
+      <EntityTypeMapping TypeName="SampleModel.TblProduct">
+        <MappingFragment StoreEntitySet="TblProduct">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductSubcategoryKey" ColumnName="ProductSubcategoryKey" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="StyleID" ColumnName="StyleID" />
+          <ScalarProperty Name="StyleName" ColumnName="StyleName" />
+          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="SizeRange" ColumnName="SizeRange" />
+          <ScalarProperty Name="SizeUnitMeasureID" ColumnName="SizeUnitMeasureID" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="WeightUnitMeasureID" ColumnName="WeightUnitMeasureID" />
+          <ScalarProperty Name="UnitOfMeasureID" ColumnName="UnitOfMeasureID" />
+          <ScalarProperty Name="UnitOfMeasureName" ColumnName="UnitOfMeasureName" />
+          <ScalarProperty Name="StockTypeID" ColumnName="StockTypeID" />
+          <ScalarProperty Name="StockTypeName" ColumnName="StockTypeName" />
+          <ScalarProperty Name="UnitCost" ColumnName="UnitCost" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="AvailableForSaleDate" ColumnName="AvailableForSaleDate" />
+          <ScalarProperty Name="StopSaleDate" ColumnName="StopSaleDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="ProductURL" ColumnName="ProductURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblProductCategories">
+      <EntityTypeMapping TypeName="SampleModel.TblProductCategory">
+        <MappingFragment StoreEntitySet="TblProductCategory">
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="ProductCategoryLabel" ColumnName="ProductCategoryLabel" />
+          <ScalarProperty Name="ProductCategoryName" ColumnName="ProductCategoryName" />
+          <ScalarProperty Name="ProductCategoryDescription" ColumnName="ProductCategoryDescription" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblProductOrders">
+      <EntityTypeMapping TypeName="SampleModel.TblProductOrder">
+        <MappingFragment StoreEntitySet="TblProductOrders">
+          <ScalarProperty Name="TransactionKey" ColumnName="TransactionKey" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="OrderDateKey" ColumnName="OrderDateKey" />
+          <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblProductSubcategories">
+      <EntityTypeMapping TypeName="SampleModel.TblProductSubcategory">
+        <MappingFragment StoreEntitySet="TblProductSubcategory">
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+          <ScalarProperty Name="ProductSubcategoryLabel" ColumnName="ProductSubcategoryLabel" />
+          <ScalarProperty Name="ProductSubcategoryName" ColumnName="ProductSubcategoryName" />
+          <ScalarProperty Name="ProductSubcategoryDescription" ColumnName="ProductSubcategoryDescription" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
